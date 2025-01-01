@@ -3,9 +3,7 @@
     "name": "bayramoff-com/telegram-mail-driver",
     "description": "Telegram Mail Driver for Laravel",
     "type": "library",
-    "license": "MIT",
-    "minimum-stability": "dev",
-    "prefer-stable": true,
+    "license": "MIT", 
     "authors": [
         {
             "name": "Bayramoff",
