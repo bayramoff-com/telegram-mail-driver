@@ -88,7 +88,7 @@ class TelegramTransport extends AbstractTransport
 
         //Log::info($response);
 
-        unlink($filename);
+        //unlink($filename);
     }
 
     public function __toString(): string
