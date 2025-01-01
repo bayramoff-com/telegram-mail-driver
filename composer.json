@@ -1,4 +1,5 @@
 {
+    "version": "0.1.0",
     "name": "bayramoff-com/telegram-mail-driver",
     "description": "Telegram Mail Driver for Laravel",
     "type": "library",
