@@ -86,7 +86,7 @@ class TelegramTransport extends AbstractTransport
         $response = curl_exec($ch);
         curl_close($ch);
 
-        //Log::info($response);
+        Log::info($response);
 
         //unlink($filename);
     }
