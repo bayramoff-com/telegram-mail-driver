@@ -18,7 +18,7 @@ A custom mail driver for Laravel (9, 10, 11, and beyond) that sends messages via
 Run:
 
 ```bash
-composer require bayramoff-com/telegram-mail-driver:0.1.1
+composer require bayramoff-com/telegram-mail-driver:0.1.2
 ```
 
 ### 2. Publish the Config
