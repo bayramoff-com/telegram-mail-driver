@@ -81,12 +81,14 @@ class TelegramTransport extends AbstractTransport
             CURLOPT_POST => true,
             CURLOPT_POSTFIELDS => $postFields,
             CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_SSL_VERIFYPEER => false,
+            CURLOPT_SSL_VERIFYHOST => false
         ]);
 
         $response = curl_exec($ch);
         curl_close($ch);
 
-        Log::info($response);
+        //Log::info($response);
 
         //unlink($filename);
     }
