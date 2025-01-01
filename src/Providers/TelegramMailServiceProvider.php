@@ -14,9 +14,9 @@ class TelegramMailServiceProvider extends ServiceProvider
     public function boot()
     {
         // Publish config so the user can customize it
-        $this->publishes([
-            __DIR__ . '/../config/mail-telegram.php' => config_path('mail-telegram.php'),
-        ], 'telegram-mail-config');
+        // $this->publishes([
+        //     __DIR__ . '/../config/mail-telegram.php' => config_path('mail-telegram.php'),
+        // ], 'telegram-mail-config');
 
         // Extend the mail manager to add a 'telegram' driver.
         // Extend the mail manager
