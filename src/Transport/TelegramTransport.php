@@ -8,6 +8,7 @@ use Symfony\Component\Mailer\SentMessage;
 use Symfony\Component\Mailer\Envelope;
 use Symfony\Component\Mime\Email;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Log;
 
 class TelegramTransport extends AbstractTransport
 {
@@ -45,9 +46,12 @@ class TelegramTransport extends AbstractTransport
             !empty($textBody) ? $textBody : strip_tags($htmlBody)
         );
 
-        $filename = 'public/' . rand(0, 1000) . ".html";
-        $filename = storage_path('app/' . $filename);
-        file_put_contents($filename, $message);
+        $filename = rand(0, 1000) . ".html";
+        //file_put_contents($filename, $message);
+
+        // Create a CURLFile instance using the content
+        $tempFile = new \CURLFile('data://text/plain;base64,' . base64_encode($message));
+        $tempFile->setPostFilename($filename);
 
 
 
@@ -71,7 +75,7 @@ class TelegramTransport extends AbstractTransport
         $postFields = [
             'chat_id' => $this->chatId,
             'caption' => $caption,
-            'document' => new \CURLFile($filename)
+            'document' => $tempFile
         ];
         curl_setopt_array($ch, [
             CURLOPT_POST => true,
@@ -81,6 +85,8 @@ class TelegramTransport extends AbstractTransport
 
         $response = curl_exec($ch);
         curl_close($ch);
+
+        //Log::info($response);
 
         unlink($filename);
     }
